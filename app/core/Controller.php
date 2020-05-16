@@ -6,7 +6,7 @@ class Controller{
   public $ROOT = "ROOT";
 
   public function __construct(){
-    $this->API = new RouterosAPI;
+    $this->API = RouterosAPI::getAPI();
   }
 
   public function view($view, $data = []){
@@ -16,5 +16,9 @@ class Controller{
   public function model($model){
     require_once 'app/models/'. $model .'.php';
     return new $model;
+  }
+
+  public function is_login(){
+    return (Session::exists('MikMan')) ? TRUE : FALSE;
   }
 }
