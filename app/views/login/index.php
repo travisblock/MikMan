@@ -10,26 +10,18 @@
     <div class="container-luar">
       <div class="container-login" id="container">
         <div class="form-container sigin-container">
-          <form method="post" action="<?= BASEURL; ?>welcome/login">
+          <form method="post" action="<?= BASEURL; ?>welcome/loginDashboard">
             <div class="err-place">
               <?= Msg::show(); ?>
             </div>
             <h1>Login Account</h1>
             <span>Use username and password</span>
-            <input type="text" name="ip" placeholder="username">
+            <!-- <input type="text" name="ip" placeholder="IP"> -->
             <input type="text" name="user" placeholder="username">
             <input type="password" name="pass" placeholder="password">
-              <a class="forgot" href="<?= BASEURL; ?>/admin/forgotPass">Forgot your password</a>
+            <a class="forgot"></a>
             <button class="tombol" type="submit">Login</button>
           </form>
-        </div>
-        <div class="overlay-container">
-          <div class="overlay">
-            <div class="overlay-panel">
-              <h1>Hello Friend</h1>
-              <p class="p">Enter your Username and Password to Login</p>
-            </div>
-          </div>
         </div>
       </div>
     </div>
