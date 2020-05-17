@@ -21,4 +21,8 @@ class Controller{
   public function is_login(){
     return (Session::exists('MikMan')) ? TRUE : FALSE;
   }
+
+  public function is_login_dashboard(){
+    return (Session::exists('LoginAdmin')) ? TRUE : FALSE;
+  }
 }
