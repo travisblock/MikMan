@@ -10,9 +10,14 @@
 
 }
 
+.fa{
+  color:#92a6e2
+}
+
 body {
   background: #edf1f5;
   color:#242B36;
+  font-weight: 300;
 }
 
 svg{
@@ -59,6 +64,7 @@ svg{
   color: #2e4ead;
   font-size: 20px;
   letter-spacing: 2px;
+  font-weight: 600;
 }
 
 
@@ -84,6 +90,7 @@ svg{
   position: relative;
   color: #fff;
   text-decoration: none;
+  margin-bottom: 5px;
 }
 
 .wrapper .sidebar ul li a.parent{
@@ -94,8 +101,8 @@ svg{
   margin-left: 25px;
 }
 
-.wrapper .sidebar .submenu ul li a{
-
+.wrapper .sidebar .submenu li a{
+  padding: 10px
 }
 
 .icon svg{
@@ -117,6 +124,9 @@ svg{
   color: #fff;
 }
 
+/* .wrapper .sidebar .submenu li a.active{
+
+} */
 
 /* ---------------------------------------------------
     CONTENT STYLE
@@ -127,7 +137,7 @@ svg{
   width: calc(100% - 200px);
   margin-top: 70px;
   margin-left: 200px;
-  padding: 5px;
+  padding: 5px 15px;
   transition: all 0.5s ease;
 }
 
@@ -160,6 +170,10 @@ svg{
 .wrapper.collapses .container-mikman{
   width: calc(100% - 70px);
   margin-left: 70px
+}
+
+.wrapper.collapses .sidebar .submenu{
+  margin-left: 10px;
 }
 
 @media (max-width: 783px){
@@ -276,52 +290,11 @@ button.ghost{
   width: 50%;
   z-index: 1;
 }
-/*
-.overlay-container{
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 50%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.overlay{
-  background: #516673;
-  background: linear-gradient(to right, #3a3659, #242b36) no-repeat 0 0 / cover;
-  position: relative;
-  left: -100%;
-  height: 100%;
-  width: 200%;
-
-}
-
-.overlay-panel{
-  color: #fff;
-  position: absolute;
-  top: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 0 40px;
-  width: 50%;
-  height: 100%;
-  text-align: center;
-  right: 0;
-}
-
-.container-login-s{
+.container-login{
   width: 340px;
-  background: #fff;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-  max-width: 100%;
-  height: 480px;
-} */
+}
 
-
-  .container-login{
-    width: 340px;
-  }
+.container{
+  padding-left: 0px;
+  padding-right: 0px;
+}
