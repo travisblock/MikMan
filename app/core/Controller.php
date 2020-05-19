@@ -7,6 +7,9 @@ class Controller{
 
   public function __construct(){
     $this->API = RouterosAPI::getAPI();
+    if($this->is_login()){
+      $this->API->connect($_SESSION['ip'], $_SESSION['user'], $_SESSION['pass']);
+    }
   }
 
   public function view($view, $data = []){
