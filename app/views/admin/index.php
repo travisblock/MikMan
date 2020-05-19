@@ -1,4 +1,92 @@
-<div class="content-mikman">
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<div class="row">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-md-2 ikon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="col-md-10">
+            <b>Date and Time</b><br>
+            <?= $data['date']; ?><br>
+            Uptime : 01:16:33<br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-md-2 ikon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="col-md-10">
+            <b>Board Info</b><br>
+            May/19/2020 22:26:28<br>
+            Uptime : 01:16:33<br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-md-2 ikon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="col-md-10">
+            <b>CPU Info</b><br>
+            May/19/2020 22:26:28<br>
+            Uptime : 01:16:33<br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-2">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">
+            Hotspot Info
+          </div>
+          <div class="card-body">
+            <div class="row">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        Interface Monitor
+      </div>
+      <div class="card-body">
+        <div class="row align-items-center">
+          <div class="col-md-2 ikon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="col-md-10">
+            <b>CPU Info</b><br>
+            May/19/2020 22:26:28<br>
+            Uptime : 01:16:33<br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header">
+        Log
+      </div>
+      <div class="card-body">
+      </div>
+    </div>
+  </div>
 </div>
