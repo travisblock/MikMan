@@ -7,7 +7,6 @@
   text-decoration: none;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
-
 }
 
 .fa{
@@ -79,6 +78,14 @@ svg{
   width: 200px;
   height: calc(100% - 60px);
   transition: all 0.3s ease-in-out;
+  overflow-y: scroll;
+  touch-action: none;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.wrapper .sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .wrapper .sidebar ul li:first-child a.parent{
@@ -297,4 +304,8 @@ button.ghost{
 .container{
   padding-left: 0px;
   padding-right: 0px;
+}
+
+.ikon{
+  font-size: 2.5em
 }
