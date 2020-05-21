@@ -3,13 +3,14 @@
 class Controller{
 
   public $API = null;
-  public $ROOT = "ROOT";
+  public $template = null;
 
   public function __construct(){
     $this->API = RouterosAPI::getAPI();
     if($this->is_login()){
       $this->API->connect($_SESSION['ip'], $_SESSION['user'], $_SESSION['pass']);
     }
+
   }
 
   public function view($view, $data = []){
@@ -27,5 +28,17 @@ class Controller{
 
   public function is_login_dashboard(){
     return (Session::exists('LoginAdmin')) ? TRUE : FALSE;
+  }
+
+  public function display_dashboard($template, $judul, $data=null){
+    $data['judul']   = $judul;
+    $data['content'] = $template;
+    $this->view("templates/template_dashboard", $data);
+  }
+
+  public function display_admin($template, $judul, $data=null){
+    $data['judul']   = $judul;
+    $data['content'] = $template;
+    $this->view("templates/template_admin", $data);
   }
 }
