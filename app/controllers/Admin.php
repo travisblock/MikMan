@@ -1,6 +1,9 @@
 <?php
 
 class Admin extends Controller{
+  private $kelompok = "admin";
+  private $judul    = "Dashboard Admin";
+  public  $template = "index";
 
   public function __construct(){
     parent::__construct();
@@ -9,16 +12,13 @@ class Admin extends Controller{
   }
 
   public function index(){
-    $this->view('templates/header');
-    $this->view('admin/menu');
-    $this->view('admin/index');
-    $this->view('templates/footer');
+    $this->display_admin($this->kelompok . '/' . $this->template, $this->judul);
   }
 
   public function infoDashboard(){
 
     $date = $this->API->comm("/system/clock/print");
-    $data['date'] = ucfirst($date[0]['date']);
+    $data['date']  = ucfirst($date[0]['date']);
     $data['time']  = $date[0]['time'];
 
     $resource = $this->API->comm("/system/resource/print");
@@ -33,13 +33,6 @@ class Admin extends Controller{
     $data['model'] = ($model[0]['routerboard'] !== 'false') ? $model[0]['routerboard'] : "No";
 
     echo json_encode($data);
-  }
-
-  public function users(){
-    $this->view('templates/header');
-    $this->view('admin/menu');
-    $this->view('admin/users');
-    $this->view('templates/footer');
   }
 
 }
