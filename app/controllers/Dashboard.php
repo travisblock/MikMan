@@ -1,6 +1,9 @@
 <?php
 
 class Dashboard extends Controller{
+  private $kelompok = "dashboard";
+  private $judul = "Dashboard MikMan";
+  public  $template = "index";
 
   public function __construct(){
     parent::__construct();
@@ -9,10 +12,7 @@ class Dashboard extends Controller{
   }
 
   public function index(){
-    $this->view('templates/header');
-    $this->view('dashboard/menu');
-    $this->view('dashboard/index');
-    $this->view('templates/footer');
+    $this->display_dashboard($this->kelompok .'/'. $this->template, $this->judul);
   }
 
   public function logout(){
