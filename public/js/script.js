@@ -48,7 +48,7 @@ $(document).ready(function () {
       });
     });
 
-
+    // Info Dashboard
     if(window.location.pathname === '/admin'){
 
       setInterval(function(){
@@ -56,8 +56,6 @@ $(document).ready(function () {
           type: "POST",
           url: baseurl + '/admin/infoDashboard',
           success: function(data){
-
-            //console.log(data);
             var obj = jQuery.parseJSON(data);
             $('#date').html(obj['date']);
             $('#time').html(obj['time']);
@@ -72,6 +70,35 @@ $(document).ready(function () {
         });
       }, 1000);
 
+    };
+
+    // User List
+
+    if(window.location.pathname === '/users'){
+
+      $.ajax({
+        type: "POST",
+        url: baseurl + '/users/list',
+        success: function(data){
+          var json = jQuery.parseJSON(data);
+          var items = '';
+          //console.log(data);
+          //console.log(json);
+          $.each(json, function(id, obj){
+            console.log(obj.name);
+            items += '<tr>';
+            items += '<td>'+obj.name+'</td>';
+            items += '<td>'+obj.profile+'</td>';
+            items += '<td>'+obj.uptime+'</td>';
+            items += '<td>'+obj.bytes_in+'</td>';
+            items += '<td>'+obj.bytes_out+'</td>';
+            items += '</tr>';
+          });
+
+          $('#tableData').append(items);
+
+        }
+      });
     };
 
 });
