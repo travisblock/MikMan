@@ -1,46 +1,48 @@
 <?php
 
-class Welcome extends Controller{
+class Welcome extends Controller
+{
 
-  public function index(){
+  public function index()
+  {
     $this->view('login/index');
   }
 
-  public function login(){
-    if(!Input::exists('POST')){
+  public function login()
+  {
+    if (!Input::exists('POST')) {
       Redirect::to('/');
     }
 
-    $ip = Input::get('ip');
+    $ip   = Input::get('ip');
     $user = Input::get('user');
     $pass = Input::get('pass');
 
-    // $this->API->debug = TRUE;
-    if(!empty($ip) && !empty($user)){
-      if($this->API->connect($ip, $user, $pass)){
+    if (!empty($ip) && !empty($user)) {
+      if ($this->API->connect($ip, $user, $pass)) {
         Session::set('MikMan', TRUE);
         Redirect::to('dashboard');
-      }else{
+      } else {
         Redirect::to('/');
       }
-      // var_dump($this->API);
     }
 
   }
 
-  public function loginDashboard(){
-    if(!Input::exists('POST')){
+  public function loginDashboard()
+  {
+    if (!Input::exists('POST')) {
       Redirect::to('/');
     }
 
     $user = Input::get('user');
     $pass = Input::get('pass');
 
-    if(!empty($user) && !empty($pass)){
-      if($user === 'ajid' && $pass === 'gans'){
+    if (!empty($user) && !empty($pass)) {
+      if ($user === 'ajid' && $pass === 'gans') {
         Session::set('LoginAdmin', TRUE);
-        Redirect::to('dashboard');
-      }else{
+        Redirect::to('AdminDashboard');
+      } else {
         Redirect::to('/');
       }
     }
