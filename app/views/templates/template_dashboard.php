@@ -126,6 +126,7 @@
     <div class="container-mikman">
 
       <!-- CONTENT DASHBOARD -->
+      
       <?php
         if(!empty($data['content'])){
           require_once 'app/views/'. $data['content'] .'.php';
