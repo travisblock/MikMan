@@ -8,50 +8,51 @@
 
 class Input{
 
-  public static function get($input=null){
+  public static function get($input=null)
+  {
 
-    if(is_null($input)){
+    if (is_null($input)) {
 
-      if(isset($_GET)){
+      if (isset($_GET)) {
         return $_GET;
-      }elseif(isset($POST)){
+      } elseif (isset($POST)) {
         return $POST;
       }
 
-    }elseif(!empty($input)){
+    } elseif (!empty($input)) {
 
-      if(isset($_POST[$input])){
+      if (isset($_POST[$input])) {
         return $_POST[$input];
-      }elseif(isset($_GET[$input])){
+      } elseif (isset($_GET[$input])) {
         return $_GET[$input];
       }
 
     }
 
     return false;
-
   }
 
-  public static function exists($type, $name = null){
+  public static function exists($type, $name = null)
+  {
     switch ($type) {
       case 'POST':
-        if(!is_null($name)){
+        if (!is_null($name)) {
           return (!empty($_POST[$name])) ? true : false;
-        }else{
+        } else {
           return (!empty($_POST)) ? true : false;
         }
         break;
       case 'GET':
-        if(!is_null($name)){
+        if (!is_null($name)) {
           return (!empty($_GET[$name])) ? true : false;
-        }else{
+        } else {
           return (!empty($_GET)) ? true : false;
         }
         break;
       case 'FILES':
-        if(!is_null($name)){
+        if (!is_null($name)) {
           return (!empty($_FILES[$name]['name'])) ? true : false;
-        }else{
+        } else {
           return (!empty($_FILES)) ? true : false;
         }
         break;
@@ -60,9 +61,4 @@ class Input{
         break;
     }
   }
-
-  // public static function exists($type, $name=null){
-  //   if($type)
-  // }
-
 }
