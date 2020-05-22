@@ -38,7 +38,7 @@
             </a>
             <ul class="collapse list-unstyled submenu" id="pageSubmenu">
                 <li>
-                    <a href="<?= BASEURL; ?>users">
+                    <a href="<?= BASEURL; ?>HotspotUsers">
                       <span class="icon"><i class="fa fa-users"></i></span>
                       <span class="title">Users</span>
                     </a>
