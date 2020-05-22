@@ -38,10 +38,9 @@ $(document).ready(function () {
 
       $.ajax({
         type: "POST",
-        url: baseurl + '/router/save',
+        url: baseurl + '/ControlRouter/save',
         data: form,
         success: function(d){
-          //alert('success');
           console.log(d);
           console.log(baseurl);
         }
@@ -49,12 +48,12 @@ $(document).ready(function () {
     });
 
     // Info Dashboard
-    if(window.location.pathname === '/admin'){
+    if(window.location.pathname === '/RouterDashboard'){
 
       setInterval(function(){
         $.ajax({
           type: "POST",
-          url: baseurl + '/admin/infoDashboard',
+          url: baseurl + '/RouterDashboard/infoDashboard',
           success: function(data){
             var obj = jQuery.parseJSON(data);
             $('#date').html(obj['date']);
@@ -74,16 +73,14 @@ $(document).ready(function () {
 
     // User List
 
-    if(window.location.pathname === '/users'){
+    if(window.location.pathname === '/HotspotUsers'){
 
       $.ajax({
         type: "POST",
-        url: baseurl + '/users/list',
+        url: baseurl + '/HotspotUsers/list',
         success: function(data){
           var json = jQuery.parseJSON(data);
           var items = '';
-          //console.log(data);
-          //console.log(json);
           $.each(json, function(id, obj){
             console.log(obj.name);
             items += '<tr>';
