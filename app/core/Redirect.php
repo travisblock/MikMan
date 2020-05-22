@@ -6,9 +6,11 @@
 * @version 0.0.1
 */
 
-class Redirect{
-  public static function to($location = null){
-    if($location){
+class Redirect
+{
+  public static function to($location = null)
+  {
+    if ($location) {
       header('Location:'. BASEURL . $location);
       exit();
     }
