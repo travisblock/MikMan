@@ -16,7 +16,6 @@
             </div>
             <h1>Login Account</h1>
             <span>Use username and password</span>
-            <!-- <input type="text" name="ip" placeholder="IP"> -->
             <input type="text" name="user" placeholder="username">
             <input type="password" name="pass" placeholder="password">
             <a class="forgot"></a>
