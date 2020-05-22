@@ -6,21 +6,23 @@
 * @version 0.0.1
 */
 
-class Msg{
+class Msg
+{
 
-  public static function setMSG($pesan, $tipe){
-
+  public static function setMsg($msg, $type)
+  {
     $_SESSION['msg'] = [
-      'pesan' => $pesan,
-      'tipe'  => $tipe
+      'msg'  => $msg,
+      'type' => $type
     ];
   }
 
-  public static function show(){
-    if(isset($_SESSION['msg'])){
+  public static function show()
+  {
+    if (isset($_SESSION['msg'])) {
       echo '<div id="msg" class="msg">
-              <div class="'. $_SESSION['msg']['tipe'] .'">
-                '. $_SESSION['msg']['pesan'] .'
+              <div class="'. $_SESSION['msg']['type'] .'">
+                '. $_SESSION['msg']['msg'] .'
               </div>
             </div>';
 
