@@ -7,7 +7,7 @@ class ControlRouter extends Controller
   {
     parent::__construct();
     if (!$this->isLoginDashboard())
-      Redirect::to('/');
+        Redirect::to('/');
   }
 
   public function index()
@@ -17,8 +17,9 @@ class ControlRouter extends Controller
 
   public function add()
   {
-    if (!Input::exists('POST'))
-      Redirect::to('/');
+    if (!Input::exists('POST')){
+        Redirect::to('/');
+	}
 
     $ip   = Input::get('ip');
     $user = Input::get('user');
@@ -30,9 +31,9 @@ class ControlRouter extends Controller
         Session::set('ip', $ip);
         Session::set('user', $user);
         Session::set('pass', $pass);
-        Redirect::to('admin');
+        Redirect::to('RouterDashboard');
       } else {
-        Redirect::to('dashboard');
+        Redirect::to('AdminDashboard');
       }
     }
   }
@@ -47,7 +48,7 @@ class ControlRouter extends Controller
     if (is_file('app/config/router.php')) {
       echo "OK";
     }
-    
+
     echo $_POST['ip'];
   }
 }
