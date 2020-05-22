@@ -2,7 +2,7 @@
         <div class="col-md-6">
           <div class="col-lg-12 bg-light pb-3">
             <h5 class="text-center p-3">Add router</h5>
-            <form method="POST" action="<?= BASEURL; ?>Router/add" id="formRouter">
+            <form method="POST" action="<?= BASEURL; ?>ControlRouter/add" id="formRouter">
               <div class="form-group row">
                 <label class="col-lg-2 col-form-label">IP</label>
                 <div class="col-lg-10">
