@@ -8,8 +8,8 @@ class Controller
   {
     $this->API = RouterosAPI::getAPI();
     if ($this->isLogin()) {
-        if ($this->API->connect($_SESSION['ip'], $_SESSION['user'], $_SESSION['pass']))
-          or die("Disconnect");
+        if (!$this->API->connect($_SESSION['ip'], $_SESSION['user'], $_SESSION['pass']))
+            die("Disconnect");
     }
 
   }
