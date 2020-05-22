@@ -21,7 +21,7 @@ class Welcome extends Controller
     if (!empty($ip) && !empty($user)) {
       if ($this->API->connect($ip, $user, $pass)) {
         Session::set('MikMan', TRUE);
-        Redirect::to('dashboard');
+        Redirect::to('Admindashboard');
       } else {
         Redirect::to('/');
       }
