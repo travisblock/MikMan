@@ -16,6 +16,7 @@ class HotspotUsers extends Controller
 
   public function index($menu = 'list')
   {
+
     $data['menu'] = $menu;
     $this->displayAdmin($this->kelompok . '/' . $this->template, $this->judul, $data);
   }
@@ -25,6 +26,7 @@ class HotspotUsers extends Controller
     $list = $this->API->comm('/ip/hotspot/user/print');
     foreach ($list as $key => $value) {
       $data[] = array(
+		'id'		=> $value['.id'],
         'name'      => $value['name'],
         'profile'   => $value['profile'],
         'uptime'    => $value['uptime'],
@@ -33,8 +35,24 @@ class HotspotUsers extends Controller
       );
     }
 
+	//print_r($list);
     echo json_encode($data);
 
+  }
+
+  public function delete($id)
+  {
+
+	  if (!empty($id)) {
+		  $delete = $this->API->comm('/ip/hotspot/user/remove', array(
+			  ".id" => $id
+		  ));
+		  if ($delete) {
+			  Redirect::to('HotspotUsers');
+		  }
+	  }
+
+	  Redirect::to('HotspotUsers');
   }
 
 }
