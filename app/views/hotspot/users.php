@@ -21,6 +21,7 @@ if($data['menu'] == "list"){
             <th>Uptime</th>
             <th>Bytes in</th>
             <th>Bytes Out</th>
+			<th>Action</th>
           </tr>
         </thead>
         <tbody id="tableData">
