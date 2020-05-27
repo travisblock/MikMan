@@ -81,6 +81,7 @@ $(document).ready(function () {
         success: function(data){
           var json = jQuery.parseJSON(data);
           var items = '';
+		  var urldel = baseurl + '/HotspotUsers/delete/'
           $.each(json, function(id, obj){
             console.log(obj.name);
             items += '<tr>';
@@ -89,6 +90,7 @@ $(document).ready(function () {
             items += '<td>'+obj.uptime+'</td>';
             items += '<td>'+obj.bytes_in+'</td>';
             items += '<td>'+obj.bytes_out+'</td>';
+			items += '<td><a class="badge badge-primary" href="'+urldel+obj.id+'">Delete</a></td>';
             items += '</tr>';
           });
 
@@ -97,5 +99,26 @@ $(document).ready(function () {
         }
       });
     };
+
+	// DHCP Lease
+	if(window.location.pathname === '/DhcpLease'){
+		$.ajax({
+			type: "POST",
+	        url: baseurl + '/DhcpLease/list',
+	        success: function(data){
+				var json = jQuery.parseJSON(data);
+	            var items = '';
+				$.each(json, function(id, obj){
+	            items += '<tr>';
+	            items += '<td>'+obj.server+'</td>';
+	            items += '<td>'+obj.address+'</td>';
+	            items += '<td>'+obj.mac+'</td>';
+	            items += '</tr>';
+	            });
+
+	            $('#tableData').append(items);
+	        }
+    	});
+	};
 
 });
