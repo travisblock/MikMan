@@ -57,6 +57,12 @@
                 </li>
             </ul>
           </li>
+		  <li>
+            <a href="<?= BASEURL; ?>DhcpLease" class="parent">
+              <span class="icon"><i class="fa fa-list"></i></span>
+              <span class="title">DHCP Lease</span>
+            </a>
+          </li>
           <li>
             <a href="#" class="parent">
               <span class="icon"><i class="fa fa-list"></i></span>
