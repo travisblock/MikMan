@@ -55,4 +55,22 @@ class HotspotUsers extends Controller
 	  Redirect::to('HotspotUsers');
   }
 
+// test
+  public function edit($id)
+  {
+	  $user = $this->API->comm('/ip/hotspot/user/print', array(
+		  ".id" => $id
+	  ));
+	  if ($user) {
+		  $edit = $this->API->comm('/ip/hotspot/set,', array(
+			  'id'		=> $value['.id'],
+	          'name'      => $value['name'],
+	          'profile'   => $value['profile'],
+	          'uptime'    => $value['uptime'],
+	          'bytes_in'  => $value['bytes-in'],
+	          'bytes_out' => $value['bytes-out']
+		  ))
+	  }
+  }
+
 }
