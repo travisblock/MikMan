@@ -360,3 +360,24 @@ pre{
     50% {border-top:10px solid #3498db;border-bottom:10px solid #3498db;}
     100% {border-top:10px solid #9b59b6;border-bottom:10px solid #9b59b6;}
 }
+
+@media (min-width:768px) and (max-width:1146px){
+	.ikon{
+		margin: 2px;
+	}
+}
+
+@media (max-width:417px){
+	.ikon{
+		font-size: 2.1rem;
+		padding-left: 5px;
+	}
+}
+
+table.t-info tr td:nth-child(2){
+	padding: 0 5px;
+}
+
+.card-body{
+	overflow: auto;
+}
