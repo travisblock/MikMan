@@ -28,7 +28,7 @@ $(document).ready(function () {
     });
 
 
-    if (window.matchMedia('(max-width: 800px)').matches){
+    if (window.matchMedia('(max-width: 1000px)').matches){
       $(".wrapper").addClass('collapses');
       console.log('lebuoh');
     }
@@ -48,9 +48,9 @@ $(document).ready(function () {
     });
 
     // Info Dashboard
-    if(window.location.pathname === '/RouterDashboard'){
+    if(window.location.pathname === '/routerDashboard'){
 
-      setInterval(function(){
+      //setInterval(function(){
         $.ajax({
           type: "POST",
           url: baseurl + '/RouterDashboard/infoDashboard',
@@ -67,7 +67,22 @@ $(document).ready(function () {
             $('#model').html(obj['model']);
           }
         });
-      }, 1000);
+      //}, 1000);
+
+			$.ajax({
+				type: "POST",
+				url: baseurl + '/RouterDashboard/showLog',
+				success: function(log){
+					var log   = jQuery.parseJSON(log);
+					var items = '';
+					$.each(log, function(id, object){
+						items += '<tr>';
+						items += '<td>'+object.message+'</td>';
+						items += '</tr>';
+					});
+					$('#log').append(items);
+				}
+			})
 
     };
 
@@ -81,16 +96,15 @@ $(document).ready(function () {
         success: function(data){
           var json = jQuery.parseJSON(data);
           var items = '';
-		  var urldel = baseurl + '/HotspotUsers/delete/'
+		  		var urldel = baseurl + '/HotspotUsers/delete/'
           $.each(json, function(id, obj){
-            console.log(obj.name);
             items += '<tr>';
             items += '<td>'+obj.name+'</td>';
             items += '<td>'+obj.profile+'</td>';
             items += '<td>'+obj.uptime+'</td>';
             items += '<td>'+obj.bytes_in+'</td>';
             items += '<td>'+obj.bytes_out+'</td>';
-			items += '<td><a class="badge badge-primary" href="'+urldel+obj.id+'">Delete</a></td>';
+						items += '<td><a class="badge badge-primary" href="'+urldel+obj.id+'">Delete</a></td>';
             items += '</tr>';
           });
 
