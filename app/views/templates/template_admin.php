@@ -24,7 +24,7 @@
       <div class="sidebar">
         <ul class="list-unstyled components">
           <li>
-            <a href="<?= BASEURL; ?>admin" class="parent">
+            <a href="<?= BASEURL; ?>routerDashboard" class="parent">
               <span class="icon">
                 <i class="fa fa-tachometer-alt"></i>
               </span>
