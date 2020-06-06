@@ -25,17 +25,16 @@ class HotspotUsers extends Controller
   {
     $list = $this->API->comm('/ip/hotspot/user/print');
     foreach ($list as $key => $value) {
-      $data[] = array(
-		'id'		=> $value['.id'],
-        'name'      => $value['name'],
-        'profile'   => $value['profile'],
-        'uptime'    => $value['uptime'],
-        'bytes_in'  => $value['bytes-in'],
-        'bytes_out' => $value['bytes-out']
+    	$data[] = array(
+				'id'				=> $value['.id'],
+	      'name'      => $value['name'],
+	      'profile'   => $value['profile'],
+	      'uptime'    => $value['uptime'],
+	      'bytes_in'  => $value['bytes-in'],
+	      'bytes_out' => $value['bytes-out']
       );
     }
 
-	//print_r($list);
     echo json_encode($data);
 
   }
@@ -56,21 +55,21 @@ class HotspotUsers extends Controller
   }
 
 // test
-  public function edit($id)
-  {
-	  $user = $this->API->comm('/ip/hotspot/user/print', array(
-		  ".id" => $id
-	  ));
-	  if ($user) {
-		  $edit = $this->API->comm('/ip/hotspot/set,', array(
-			  'id'		=> $value['.id'],
-	          'name'      => $value['name'],
-	          'profile'   => $value['profile'],
-	          'uptime'    => $value['uptime'],
-	          'bytes_in'  => $value['bytes-in'],
-	          'bytes_out' => $value['bytes-out']
-		  ))
-	  }
-  }
+  // public function edit($id)
+  // {
+	//   $user = $this->API->comm('/ip/hotspot/user/print', array(
+	// 	  ".id" => $id
+	//   ));
+	//   if ($user) {
+	// 	  $edit = $this->API->comm('/ip/hotspot/set,', array(
+	// 		  'id'		=> $value['.id'],
+	//           'name'      => $value['name'],
+	//           'profile'   => $value['profile'],
+	//           'uptime'    => $value['uptime'],
+	//           'bytes_in'  => $value['bytes-in'],
+	//           'bytes_out' => $value['bytes-out']
+	// 	  ))
+	//   }
+  // }
 
 }
