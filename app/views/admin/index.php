@@ -1,46 +1,52 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-4 pb-2">
     <div class="card">
       <div class="card-body">
         <div class="row align-items-center">
-          <div class="col-md-2 ikon"><i class="fas fa-calendar-alt"></i></div>
-          <div class="col-md-10">
+          <div class="col-md-2 col-sm-2 col-2 ikon"><i class="fas fa-calendar-alt"></i></div>
+          <div class="col-md-10 col-sm-10 col-10 ">
             <b>Date and Time</b><br>
-            Date : <a id="date"></a><br>
-            Time : <a id="time"></a><br>
-            Uptime: <a id="uptime"></a>
+						<table class="t-info">
+							<tr><td>Date</td><td>:</td><td><a id="date"></a></td></tr>
+	            <tr><td>Time</td><td>:</td><td><a id="time"></a></td></tr>
+	            <tr><td>Uptime</td><td>:</td><td><a id="uptime"></a></td></tr>
+						</table>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-4 pb-2">
     <div class="card">
       <div class="card-body">
         <div class="row align-items-center">
-          <div class="col-md-2 ikon"><i class="fas fa-info-circle"></i></div>
-          <div class="col-md-10">
+          <div class="col-md-2 col-sm-2 col-2 ikon"><i class="fas fa-info-circle"></i></div>
+          <div class="col-md-10 col-sm-10 col-10 ">
             <b>Board Info</b><br>
-            OS Version : <a id="version"></a><br>
-            Board Name : <a id="board_name"></a><br>
-            Model : <a id="model"></a>
+						<table class="t-info">
+            	<tr><td>OS Version</td><td>:</td><td><a id="version"></a></td></tr>
+            	<tr><td>Board Name</td><td>:</td><td><a id="board_name"></a></td></tr>
+            	<tr><td>Model</td><td>:</td><td><a id="model"></a></td></tr>
+						</table>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-md-4 pb-2">
     <div class="card">
       <div class="card-body">
         <div class="row align-items-center">
-          <div class="col-md-2 ikon"><i class="fas fa-server"></i></div>
-          <div class="col-md-10">
+          <div class="col-md-2 col-sm-2 col-2 ikon"><i class="fas fa-server"></i></div>
+          <div class="col-md-10 col-sm-10 col-10">
             <b>CPU Info</b><br>
-            CPU Load : <a id="cpu_load"></a>%<br>
-            Free Hdd : <a id="free_hdd"></a><br>
-            Free Mem : <a id="free_memory"></a><br>
+						<table class="t-info">
+	            <tr><td>CPU Load</td><td>:</td><td><a id="cpu_load"></a>%</td></tr>
+	            <tr><td>Free Hdd</td><td>:</td><td><a id="free_hdd"></a></td></tr>
+	            <tr><td>Free Mem</td><td>:</td><td><a id="free_memory"></a></td></tr>
+						</table>
           </div>
         </div>
       </div>
@@ -89,6 +95,7 @@
         Log
       </div>
       <div class="card-body">
+				<a id="log"></a>
       </div>
     </div>
   </div>
