@@ -39,4 +39,20 @@ class RouterDashboard extends Controller
     echo json_encode($data);
   }
 
+	public function showLog()
+	{
+		$logs = $this->API->comm('/log/print');
+		$data = array();
+		foreach ($logs as $log){
+			if(preg_match('/hotspot/', $log['message'])){
+				$data[] = array(
+					'topics'  => $log['topics'],
+					'message' => $log['message']
+				);
+			}
+		}
+
+		echo json_encode($data);
+	}
+
 }
