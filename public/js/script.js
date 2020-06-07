@@ -48,7 +48,7 @@ $(document).ready(function () {
     });
 
     // Info Dashboard
-    if(window.location.pathname === '/routerDashboard'){
+    if(window.location.pathname === '/RouterDashboard'){
 
       //setInterval(function(){
         $.ajax({
@@ -90,28 +90,35 @@ $(document).ready(function () {
 
     if(window.location.pathname === '/HotspotUsers'){
 
-      $.ajax({
-        type: "POST",
-        url: baseurl + '/HotspotUsers/list',
-        success: function(data){
-          var json = jQuery.parseJSON(data);
-          var items = '';
-		  		var urldel = baseurl + '/HotspotUsers/delete/'
-          $.each(json, function(id, obj){
-            items += '<tr>';
-            items += '<td>'+obj.name+'</td>';
-            items += '<td>'+obj.profile+'</td>';
-            items += '<td>'+obj.uptime+'</td>';
-            items += '<td>'+obj.bytes_in+'</td>';
-            items += '<td>'+obj.bytes_out+'</td>';
-						items += '<td><a class="badge badge-primary" href="'+urldel+obj.id+'">Delete</a></td>';
-            items += '</tr>';
-          });
+			fetch_data();
 
-          $('#tableData').append(items);
+			function fetch_data() {
+				$('#tableUser').DataTable({
+					"processing" : true,
+					"serverSide" : true,
+					"ordering"	 : false,
+					"ajax"			 : baseurl + "/HotspotUsers/list"
+				});
+			}
 
-        }
-      });
+			$(document).on('click', '.delete', function(){
+				var id = $(this).attr("id");
+				if(confirm("Are you sure you want to remove this?")){
+					$.ajax({
+						url: baseurl+'/HotspotUsers/delete/'+id,
+						method: 'GET',
+						success: function(msgSuccess){
+							$('#alert_message').html('<div class="alert alert-success">'+msgSuccess+'</div>');
+      				$('#tableUser').DataTable().destroy();
+							fetch_data();
+						}
+					})
+				}
+			});
+
+			setInterval(function(){
+				$('#alert_message').html('');
+			}, 5000);
     };
 
 	// DHCP Lease
