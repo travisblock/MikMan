@@ -26,16 +26,24 @@ class HotspotUsers extends Controller
     $list = $this->API->comm('/ip/hotspot/user/print');
     foreach ($list as $key => $value) {
     	$data[] = array(
-				'id'				=> $value['.id'],
-	      'name'      => $value['name'],
-	      'profile'   => $value['profile'],
-	      'uptime'    => $value['uptime'],
-	      'bytes_in'  => $value['bytes-in'],
-	      'bytes_out' => $value['bytes-out']
+	      $value['name'],
+	      $value['profile'],
+	      $value['uptime'],
+	      $value['bytes-in'],
+	      $value['bytes-out'],
+				"<a class='badge badge-primary' href='".BASEURL."HotspotUsers/edit/".$value['.id']."'>Edit</a>
+				 <button type='button' class='badge badge-danger delete text-white' id='".$value['.id']."'>Delete</button>"
       );
     }
 
-    echo json_encode($data);
+		$result = array(
+			"draw"				 		=> 1,
+			"recordsTotal" 		=> count($list),
+			"recordsFiltered" => 2,
+			"data"						=> $data
+		);
+		//var_dump(count($list));
+    echo json_encode($result);
 
   }
 
@@ -47,11 +55,12 @@ class HotspotUsers extends Controller
 			  ".id" => $id
 		  ));
 		  if ($delete) {
-			  Redirect::to('HotspotUsers');
-		  }
+			  echo "User terhapus";
+		  }else{
+				echo "Error hapus user";
+			}
 	  }
 
-	  Redirect::to('HotspotUsers');
   }
 
 // test
