@@ -6,6 +6,7 @@
     <title>Dashboard MikMan</title>
     <link href="<?= BASEURL; ?>public/fonts/font-awesome/css/all.css" rel="stylesheet">
     <link href="<?= BASEURL; ?>public/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?= BASEURL; ?>public/css/dataTables.bootstrap4.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= BASEURL; ?>public/css/style.css">
   </head>
   <body>
@@ -24,7 +25,7 @@
       <div class="sidebar">
         <ul class="list-unstyled components">
           <li>
-            <a href="<?= BASEURL; ?>routerDashboard" class="parent">
+            <a href="<?= BASEURL; ?>RouterDashboard" class="parent">
               <span class="icon">
                 <i class="fa fa-tachometer-alt"></i>
               </span>
@@ -90,6 +91,8 @@
     </div>
   <script src="<?= BASEURL; ?>public/js/jquery.min.js"></script>
   <script src="<?= BASEURL; ?>public/js/bootstrap.min.js"></script>
+	<script src="<?= BASEURL; ?>public/js/jquery.dataTables.min.js"></script>
+	<script src="<?= BASEURL; ?>public/js/dataTables.bootstrap4.min.js"></script>
   <script src="<?= BASEURL; ?>public/js/script.js"></script>
   </body>
 </html>
