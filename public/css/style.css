@@ -36,6 +36,7 @@ svg{
   display: flex;
   position: fixed;
   top: 0px;
+	z-index: 2
 }
 
 .wrapper .top_navbar .list-menu{
@@ -380,4 +381,8 @@ table.t-info tr td:nth-child(2){
 
 .card-body{
 	overflow: auto;
+}
+
+.bg-primary{
+	background-color: #315AD5!important;
 }
