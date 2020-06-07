@@ -13,8 +13,9 @@ if($data['menu'] == "list"){
   ?>
   <div class="content-mikman">
     <div class="table responsive">
-      <table class="table">
-        <thead>
+			<div id="alert_message"></div>
+      <table class="table table-bordered" id="tableUser">
+        <thead class="bg-primary text-white">
           <tr>
             <th>Nama</th>
             <th>Profil</th>
@@ -25,7 +26,38 @@ if($data['menu'] == "list"){
           </tr>
         </thead>
         <tbody id="tableData">
-
+					<!-- <tr>
+						<td>User1</td>
+						<td>Server1</td>
+						<td>10m</td>
+						<td>1024</td>
+						<td>512</td>
+						<td>Delete</td>
+					</tr>
+					<tr>
+						<td>udin2</td>
+						<td>Server1</td>
+						<td>10m</td>
+						<td>1024</td>
+						<td>512</td>
+						<td>Delete</td>
+					</tr>
+					<tr>
+						<td>Umam3</td>
+						<td>Server1</td>
+						<td>10m</td>
+						<td>1024</td>
+						<td>512</td>
+						<td>Delete</td>
+					</tr>
+					<tr>
+						<td>Mamu4</td>
+						<td>Server1</td>
+						<td>10m</td>
+						<td>1024</td>
+						<td>512</td>
+						<td>Delete</td>
+					</tr> -->
         </tbody>
       </table>
     </div>
