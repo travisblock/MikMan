@@ -31,9 +31,9 @@ class ControlRouter extends Controller
         Session::set('ip', $ip);
         Session::set('user', $user);
         Session::set('pass', $pass);
-        Redirect::to('RouterDashboard');
+        Redirect::to('router_dashboard');
       } else {
-        Redirect::to('AdminDashboard');
+        Redirect::to('admin_dashboard');
       }
     }
   }
