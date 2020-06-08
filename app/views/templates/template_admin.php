@@ -19,13 +19,13 @@
         </div>
         <div class="top_menu">
           <div class="logo">MikMan</div>
-          <div class="logout"><a href="<?= BASEURL ?>dashboard/logout">Logout</a></div>
+          <div class="logout"><a href="<?= BASEURL ?>admin_dashboard/logout">Logout</a></div>
         </div>
       </div>
       <div class="sidebar">
         <ul class="list-unstyled components">
           <li>
-            <a href="<?= BASEURL; ?>RouterDashboard" class="parent">
+            <a href="<?= BASEURL; ?>router_dashboard" class="parent">
               <span class="icon">
                 <i class="fa fa-tachometer-alt"></i>
               </span>
@@ -39,7 +39,7 @@
             </a>
             <ul class="collapse list-unstyled submenu" id="pageSubmenu">
                 <li>
-                    <a href="<?= BASEURL; ?>HotspotUsers">
+                    <a href="<?= BASEURL; ?>hotspot_users">
                       <span class="icon"><i class="fa fa-users"></i></span>
                       <span class="title">Users</span>
                     </a>
@@ -59,7 +59,7 @@
             </ul>
           </li>
 		  <li>
-            <a href="<?= BASEURL; ?>DhcpLease" class="parent">
+            <a href="<?= BASEURL; ?>dhcp_lease" class="parent">
               <span class="icon"><i class="fa fa-list"></i></span>
               <span class="title">DHCP Lease</span>
             </a>
