@@ -12,8 +12,12 @@ class App
     $url = $this->getURL();
 
     if (!is_null($url)) {
-      if (file_exists('app/controllers/'. ucfirst($url[0] . '.php'))) {
-        $this->controller = ucfirst($url[0]);
+
+			$url_alias = implode('_', array_map('ucfirst', explode('_', $url[0])));
+			$url_alias = str_replace('_', '', $url_alias);
+
+      if (file_exists('app/controllers/'. $url_alias . '.php')) {
+        $this->controller = $url_alias;
         unset($url[0]);
       }
     }
