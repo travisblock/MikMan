@@ -25,14 +25,14 @@ class HotspotUsers extends Controller
   {
     $list = $this->API->comm('/ip/hotspot/user/print');
     foreach ($list as $key => $value) {
-    	$data[] = array(
+    	$datalist[] = array(
 	      $value['name'],
 	      $value['profile'],
 	      $value['uptime'],
 	      $value['bytes-in'],
 	      $value['bytes-out'],
 				"<a class='badge badge-primary' href='".BASEURL."HotspotUsers/edit/".$value['.id']."'>Edit</a>
-				 <button type='button' class='badge badge-danger delete text-white' id='".$value['.id']."'>Delete</button>"
+				 <a class='badge badge-danger delete normal' id='".$value['.id']."'>Delete</a>"
       );
     }
 
@@ -40,7 +40,7 @@ class HotspotUsers extends Controller
 			"draw"				 		=> 1,
 			"recordsTotal" 		=> count($list),
 			"recordsFiltered" => 2,
-			"data"						=> $data
+			"data"						=> $datalist
 		);
 		//var_dump(count($list));
     echo json_encode($result);
@@ -49,12 +49,11 @@ class HotspotUsers extends Controller
 
   public function delete($id)
   {
-
 	  if (!empty($id)) {
 		  $delete = $this->API->comm('/ip/hotspot/user/remove', array(
 			  ".id" => $id
 		  ));
-		  if ($delete) {
+		  if (!$delete) {
 			  echo "User terhapus";
 		  }else{
 				echo "Error hapus user";
@@ -63,6 +62,18 @@ class HotspotUsers extends Controller
 
   }
 
+	public function add()
+	{
+		$add = $this->API->comm('/ip/hotspot/user/add', array(
+			"name"		 => $_POST['username'],
+			"password" => $_POST['password'],
+			"limit-uptime"	 => $_POST['uptime']
+		));
+
+		if($add){
+			echo "success add user";
+		}
+	}
 // test
   // public function edit($id)
   // {
