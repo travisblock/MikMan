@@ -12,6 +12,7 @@
 a.normal{
   text-decoration: none;
   color: #fff;
+	cursor: pointer;
 }
 
 .fa{
