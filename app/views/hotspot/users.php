@@ -1,17 +1,15 @@
 <div class="content-mikman text-center">
-  <h4><?= ucfirst($data['menu']); ?> Hotspot User</h4>
+  <h4>List Hotspot User</h4>
 </div>
 
   <div class="menu-under-responsive text-center">
-    <span class="badge badge-primary"><a class="normal" href="<?= BASEURL; ?>users">List</a></span>
-    <span class="badge badge-primary"><a class="normal" href="<?= BASEURL; ?>users/add">Add</a></span>
-    <span class="badge badge-primary"><a class="normal" href="<?= BASEURL; ?>users/generate">Generate</a></span>
+    <span class="badge badge-info" id="btnlist"><a class="normal">List</a></span>
+    <span class="badge badge-info" id="btnadd"><a class="normal">Add</a></span>
+    <span class="badge badge-info" id="btn-generate"><a class="normal">Generate</a></span>
   </div>
 
-<?php
-if($data['menu'] == "list"){
-  ?>
-  <div class="content-mikman">
+	<!-- List User -->
+  <div class="content-mikman" id="listuser">
     <div class="table responsive">
 			<div id="alert_message"></div>
       <table class="table table-bordered" id="tableUser">
@@ -26,41 +24,37 @@ if($data['menu'] == "list"){
           </tr>
         </thead>
         <tbody id="tableData">
-					<!-- <tr>
-						<td>User1</td>
-						<td>Server1</td>
-						<td>10m</td>
-						<td>1024</td>
-						<td>512</td>
-						<td>Delete</td>
-					</tr>
-					<tr>
-						<td>udin2</td>
-						<td>Server1</td>
-						<td>10m</td>
-						<td>1024</td>
-						<td>512</td>
-						<td>Delete</td>
-					</tr>
-					<tr>
-						<td>Umam3</td>
-						<td>Server1</td>
-						<td>10m</td>
-						<td>1024</td>
-						<td>512</td>
-						<td>Delete</td>
-					</tr>
-					<tr>
-						<td>Mamu4</td>
-						<td>Server1</td>
-						<td>10m</td>
-						<td>1024</td>
-						<td>512</td>
-						<td>Delete</td>
-					</tr> -->
         </tbody>
       </table>
     </div>
   </div>
-  <?php
-}
+
+	<!-- Add User-->
+	<div class="content-mikman" id="adduser" style="display:none">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-12">
+				<form id="formadduser" method="POST">
+					<div class="form-group row">
+						<label class="col-lg-2 col-form-label">Username</label>
+						<div class="col-lg-10">
+							<input type="text" class="form-control" name="username" id="username">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-lg-2 col-form-label">Password</label>
+						<div class="col-lg-10">
+							<input type="password" class="form-control" name="password" id="password">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label class="col-md-2 col-form-label">Uptime</label>
+						<div class="col-md-10">
+							<input type="number" class="form-control" name="uptime" id="uptime">
+						</div>
+					</div>
+					<button type="button" class="btn btn-success" id="btnaddsave">Save</button>
+					<button type="button" class="btn btn-danger" id="btnaddclose">Close</button>
+				</form>
+			</div>
+		</div>
+	</div>
