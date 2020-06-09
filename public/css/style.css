@@ -19,6 +19,18 @@ a.normal{
   color:#92a6e2
 }
 
+#notify .fa{
+	color: #333333
+}
+
+#notify .fa.fa-times {
+	z-index: 1;
+	right: 12px;
+	position: absolute;
+	top: 6px;
+	cursor: pointer;
+}
+
 body {
   background: #edf1f5;
   color:#242B36;
@@ -386,4 +398,44 @@ table.t-info tr td:nth-child(2){
 
 .bg-primary{
 	background-color: #315AD5!important;
+}
+
+#notify {
+	display: block;
+	position: fixed;
+	z-index: 2;
+	margin-top: -11px;
+	transition: all .5s;
+	right: 15px;
+	height: 100px;
+	width: 300px;
+}
+
+#notify .msg{
+	padding: 13px 34px;
+	color: #333333;
+	font-weight: 500;
+	line-height: 35px;
+}
+
+#notify .msg.success {
+	background-color: #AFF29A;
+}
+
+#notify .msg.info {
+	background-color: #7195FF;
+}
+
+#notify .msg.warning {
+	background-color: #FFDD57;
+}
+
+#notify .msg.error {
+	background-color: #FF5757;
+}
+
+@media screen and (max-width: 780px) {
+	.table-responsive{
+		overflow-y: scroll;
+	}
 }
