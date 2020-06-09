@@ -2,7 +2,7 @@
 
 class DhcpLease extends Controller
 {
-	private $kelompok = "dhcp";
+		private $kelompok = "dhcp";
     private $judul    = "DHCP Lease";
     public  $template = "lease";
 
@@ -15,21 +15,24 @@ class DhcpLease extends Controller
 
     public function index()
     {
-      $this->displayAdmin($this->kelompok . '/' . $this->template, $this->judul);
+			$data['lease'] = $this->list();
+	    $this->displayAdmin($this->kelompok . '/' . $this->template, $this->judul, $data);
     }
 
 	public function list(){
 		$list = $this->API->comm('/ip/dhcp-server/lease/print');
+		$lease = null;
+		if (!empty($list)) {
 	    foreach ($list as $key => $value) {
-	      $data[] = array(
-			'id'		=> $value['.id'],
-			'address'	=> $value['address'],
-			'mac'		=> $value['mac-address'],
-			'server'	=> $value['server']
+	      $lease[] = array(
+				'id'			=> $value['.id'],
+				'address'	=> $value['address'],
+				'mac'			=> $value['mac-address'],
+				'server'	=> $value['server']
 	      );
 	    }
+		}
 
-		echo json_encode($data);
-		//print_r($list);
+		return $lease;
 	}
 }
