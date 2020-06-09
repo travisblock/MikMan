@@ -10,9 +10,8 @@
 
 	<!-- List User -->
   <div class="content-mikman" id="listuser">
-    <div class="table responsive">
-			<div id="alert_message"></div>
-      <table class="table table-bordered" id="tableUser">
+		<div class="table-responsive">
+      <table class="table table-bordered" id="table">
         <thead class="bg-primary text-white">
           <tr>
             <th>Nama</th>
@@ -23,7 +22,21 @@
 						<th>Action</th>
           </tr>
         </thead>
-        <tbody id="tableData">
+        <tbody>
+					<?php
+					if(!is_null($data['list'])){
+						foreach ($data['list'] as $key => $value) {
+							echo "<tr>";
+							echo "<td>". $value[0] . "</td>";
+							echo "<td>". $value[1] . "</td>";
+							echo "<td>". $value[2] . "</td>";
+							echo "<td>". $value[3] . "</td>";
+							echo "<td>". $value[4] . "</td>";
+							echo "<td>". $value[5] . "</td>";
+							echo "</tr>";
+						}
+					}
+					?>
         </tbody>
       </table>
     </div>
