@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="<?= BASEURL; ?>hotspot_user_profile">
                     <span class="icon"><i class="fa fa-users-cog"></i></span>
                     <span class="title">User Profile</span>
                   </a>
@@ -79,7 +79,10 @@
         </ul>
       </div>
       <div class="container-mikman">
-
+				<!-- <div id="notify">
+								<div class="msg error"><i class="fa fa-times-circle"></i> <b>Error</b><br>'.$_SESSION['msg']['msg'].'<i class="fa fa-times close"></i></div>
+							</div> -->
+				<?= Msg::show(); ?>
         <!-- CONTENT -->
         <?php
           if(!empty($data['content'])){
