@@ -9,17 +9,27 @@
   </div> -->
 
   <div class="content-mikman">
-    <div class="table responsive">
-      <table class="table">
-        <thead>
+		<div class="table-responsive">
+      <table class="table table-bordered" id="table">
+        <thead class="bg-primary text-white">
           <tr>
             <th>Server</th>
             <th>Address</th>
             <th>Mac</th>
           </tr>
         </thead>
-        <tbody id="tableData">
-
+        <tbody>
+					<?php
+					if(!is_null($data['lease'])){
+						foreach ($data['lease'] as $key => $value) {
+							echo "<tr>";
+							echo "<td>". $value['server'] . "</td>";
+							echo "<td>". $value['address'] . "</td>";
+							echo "<td>". $value['mac'] . "</td>";
+							echo "</tr>";
+						}
+					}
+					?>
         </tbody>
       </table>
     </div>
