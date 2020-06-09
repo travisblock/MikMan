@@ -1,6 +1,7 @@
 $(document).ready(function () {
     var path      = window.location.href;
     var baseurl   = window.location.protocol + '//' + window.location.host;
+
     $('.wrapper .sidebar ul li a.parent').each(function(){
       parrent = this;
       var nextSibling = this.nextElementSibling;
@@ -27,6 +28,17 @@ $(document).ready(function () {
       $(".wrapper").toggleClass('collapses');
     });
 
+		$('.close').on('click', function(){
+			$("#notify").animate({ height: 'toggle', opacity: 'toggle' }, '200', function(){
+				$('#notify').remove();
+			});
+		});
+
+		window.setTimeout(function(){
+			$("#notify").animate({ height: 'toggle', opacity: 'toggle' }, '500', function(){
+				$('#notify').remove();
+			});
+		}, 4000);
 
     if (window.matchMedia('(max-width: 1000px)').matches){
       $(".wrapper").addClass('collapses');
@@ -46,6 +58,10 @@ $(document).ready(function () {
         }
       });
     });
+
+		function datatable_start() {
+			$('#table').DataTable();
+		}
 
     // Info Dashboard
     if(window.location.pathname === '/router_dashboard'){
@@ -89,28 +105,17 @@ $(document).ready(function () {
     // User List
 
     if(window.location.pathname === '/hotspot_users'){
-
-			fetch_data();
-
-			function fetch_data() {
-				$('#tableUser').DataTable({
-					"processing" : true,
-					"serverSide" : true,
-					"ordering"	 : false,
-					"ajax"			 : baseurl + "/hotspot_users/list"
-				});
-			}
+			$('title').text('List Hotspot User');
+			datatable_start();
 
 			$(document).on('click', '.delete', function(){
 				var id = $(this).attr("id");
-				if(confirm("Are you sure you want to remove this?")){
+				if(confirm("Yakin hapus user?")){
 					$.ajax({
 						url: baseurl+'/hotspot_users/delete/'+id,
-						method: 'GET',
+						type: 'GET',
 						success: function(msgSuccess){
-							$('#alert_message').html('<div class="alert alert-success">'+msgSuccess+'</div>');
-      				$('#tableUser').DataTable().destroy();
-							fetch_data();
+							location.reload();
 						}
 					})
 				}
@@ -145,13 +150,14 @@ $(document).ready(function () {
 					type: 'POST',
 					data: $('#formadduser').serialize(),
 					success: function(msgadduser){
-						console.log($('#formadduser').serialize());
-						$('#alert_message').html('<div class="alert alert-success">'+msgadduser+'</div>');
-						$('#listuser').css('display', 'block');
-						$('#adduser').css('display', 'none');
-						$('h4').text('List Hotspot User');
-						$('#tableUser').DataTable().destroy();
-						fetch_data();
+						location.reload();
+						// console.log($('#formadduser').serialize());
+						// $('#alert_message').html('<div class="alert alert-success">'+msgadduser+'</div>');
+						// $('#listuser').css('display', 'block');
+						// $('#adduser').css('display', 'none');
+						// $('h4').text('List Hotspot User');
+						// $('#tableUser').DataTable().destroy();
+						// fetch_data();
 					},
 					error: function(xhr, status, err) {
 
@@ -176,23 +182,13 @@ $(document).ready(function () {
 
 	// DHCP Lease
 	if(window.location.pathname === '/dhcp_lease'){
-		$.ajax({
-			type: "POST",
-	        url: baseurl + '/dhcp_lease/list',
-	        success: function(data){
-				var json = jQuery.parseJSON(data);
-	            var items = '';
-				$.each(json, function(id, obj){
-	            items += '<tr>';
-	            items += '<td>'+obj.server+'</td>';
-	            items += '<td>'+obj.address+'</td>';
-	            items += '<td>'+obj.mac+'</td>';
-	            items += '</tr>';
-	            });
-
-	            $('#tableData').append(items);
-	        }
-    	});
+		$('title').text('List DHCP Lease');
+		datatable_start();
 	};
+
+	if(window.location.pathname === '/hotspot_user_profile'){
+		$('title').text('Hotspot User Profile');
+		datatable_start();
+	}
 
 });
