@@ -17,33 +17,31 @@ class HotspotUsers extends Controller
   public function index($menu = 'list')
   {
 
-    $data['menu'] = $menu;
+		$data['list'] = $this->list();
     $this->displayAdmin($this->kelompok . '/' . $this->template, $this->judul, $data);
+
   }
 
   public function list()
   {
     $list = $this->API->comm('/ip/hotspot/user/print');
-    foreach ($list as $key => $value) {
-    	$datalist[] = array(
-	      $value['name'],
-	      $value['profile'],
-	      $value['uptime'],
-	      $value['bytes-in'],
-	      $value['bytes-out'],
-				"<a class='badge badge-primary' href='".BASEURL."HotspotUsers/edit/".$value['.id']."'>Edit</a>
-				 <a class='badge badge-danger delete normal' id='".$value['.id']."'>Delete</a>"
-      );
-    }
+		$datalist = null;
+		
+		if (!empty($list)) {
+	    foreach ($list as $key => $value) {
+	    	$datalist[] = array(
+		      $value['name'],
+		      $value['profile'],
+		      $value['uptime'],
+		      $value['bytes-in'],
+		      $value['bytes-out'],
+					"<a class='badge badge-primary' href='".BASEURL."HotspotUsers/edit/".$value['.id']."'>Edit</a>
+					 <a class='badge badge-danger delete normal' id='".$value['.id']."'>Delete</a>"
+	      );
+	    }
+		}
 
-		$result = array(
-			"draw"				 		=> 1,
-			"recordsTotal" 		=> count($list),
-			"recordsFiltered" => 2,
-			"data"						=> $datalist
-		);
-		//var_dump(count($list));
-    echo json_encode($result);
+    return $datalist;
 
   }
 
@@ -54,9 +52,9 @@ class HotspotUsers extends Controller
 			  ".id" => $id
 		  ));
 		  if (!$delete) {
-			  echo "User terhapus";
+			  Msg::setMsg('success', 'User berhasil dihapus');
 		  }else{
-				echo "Error hapus user";
+				Msg::setMsg('error', 'User gagal dihapus');
 			}
 	  }
 
@@ -65,14 +63,12 @@ class HotspotUsers extends Controller
 	public function add()
 	{
 		$add = $this->API->comm('/ip/hotspot/user/add', array(
-			"name"		 => $_POST['username'],
-			"password" => $_POST['password'],
-			"limit-uptime"	 => $_POST['uptime']
+			"name"		 		 => $_POST['username'],
+			"password"		 => $_POST['password'],
+			"limit-uptime" => $_POST['uptime']
 		));
 
-		if($add){
-			echo "success add user";
-		}
+		Msg::setMsg('success', 'User berhasil ditambahkan');
 	}
 // test
   // public function edit($id)
