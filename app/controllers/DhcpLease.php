@@ -10,7 +10,7 @@ class DhcpLease extends Controller
     {
       parent::__construct();
       if (!$this->isLogin())
-        Redirect::to('/');
+				Redirect::to('/');
     }
 
     public function index()
