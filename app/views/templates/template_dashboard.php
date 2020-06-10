@@ -25,7 +25,7 @@
       <div class="sidebar">
         <ul class="list-unstyled components">
           <li>
-            <a href="<?= BASEURL; ?>dashboard" class="parent">
+            <a href="<?= BASEURL; ?>admin_dashboard" class="parent">
               <span class="icon">
                 <i class="fa fa-home"></i>
               </span>
@@ -126,7 +126,7 @@
     <div class="container-mikman">
 
       <!-- CONTENT DASHBOARD -->
-      
+
       <?php
         if(!empty($data['content'])){
           require_once 'app/views/'. $data['content'] .'.php';
