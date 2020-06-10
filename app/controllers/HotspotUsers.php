@@ -4,7 +4,7 @@ class HotspotUsers extends Controller
 {
 
   private $kelompok = "hotspot";
-  private $judul    = "Hotspot Users";
+  private $judul    = "List Hotspot Users";
   public  $template = "users";
 
   public function __construct()
@@ -14,10 +14,11 @@ class HotspotUsers extends Controller
       Redirect::to('/');
   }
 
-  public function index($menu = 'list')
+  public function index($id=null)
   {
 
 		$data['list'] = $this->list();
+		$data['edit'] = $this->listById($id, true);
     $this->displayAdmin($this->kelompok . '/' . $this->template, $this->judul, $data);
 
   }
@@ -26,7 +27,7 @@ class HotspotUsers extends Controller
   {
     $list = $this->API->comm('/ip/hotspot/user/print');
 		$datalist = null;
-		
+
 		if (!empty($list)) {
 	    foreach ($list as $key => $value) {
 	    	$datalist[] = array(
@@ -35,7 +36,7 @@ class HotspotUsers extends Controller
 		      $value['uptime'],
 		      $value['bytes-in'],
 		      $value['bytes-out'],
-					"<a class='badge badge-primary' href='".BASEURL."HotspotUsers/edit/".$value['.id']."'>Edit</a>
+					"<a class='badge badge-primary btnedit normal' id='".$value['.id']."' >Edit</a>
 					 <a class='badge badge-danger delete normal' id='".$value['.id']."'>Delete</a>"
 	      );
 	    }
@@ -44,6 +45,31 @@ class HotspotUsers extends Controller
     return $datalist;
 
   }
+
+	public function listById($id=null, $check=false)
+	{
+		if (!is_null($id)) {
+			$user = $this->API->comm('/ip/hotspot/user/print', array(
+				"?.id" => $id
+			));
+			$data = null;
+			// var_dump($user);
+			if (!empty($user)) {
+						$data[".id"]			 = $user[0]['.id'];
+						$data["name"]			 = $user[0]['name'];
+						$data["profile"] 	 = $user[0]['profile'];
+			      $data["uptime"] 	 = $user[0]['uptime'];
+			      $data["bytes-in"]  = $user[0]['bytes-in'];
+			      $data["bytes-out"] = $user[0]['bytes-out'];
+			}
+
+			if(!$check){
+				echo json_encode($data);
+			}else{
+				return $data;
+			}
+		}
+	}
 
   public function delete($id)
   {
@@ -70,22 +96,27 @@ class HotspotUsers extends Controller
 
 		Msg::setMsg('success', 'User berhasil ditambahkan');
 	}
-// test
-  // public function edit($id)
-  // {
-	//   $user = $this->API->comm('/ip/hotspot/user/print', array(
-	// 	  ".id" => $id
-	//   ));
-	//   if ($user) {
-	// 	  $edit = $this->API->comm('/ip/hotspot/set,', array(
-	// 		  'id'		=> $value['.id'],
-	//           'name'      => $value['name'],
-	//           'profile'   => $value['profile'],
-	//           'uptime'    => $value['uptime'],
-	//           'bytes_in'  => $value['bytes-in'],
-	//           'bytes_out' => $value['bytes-out']
-	// 	  ))
-	//   }
-  // }
+
+	// test
+  public function edit($id = null)
+  {
+		if(!is_null($id)){
+			$id = "*". $id;
+		  $user = $this->API->comm('/ip/hotspot/user/print', array(
+			  "?.id" => $id
+		  ));
+
+		  if ($user) {
+			  $edit = $this->API->comm('/ip/hotspot/set,', array(
+				  		'id'		=> $value['.id'],
+		          'name'      => $value['name'],
+		          'profile'   => $value['profile'],
+		          'uptime'    => $value['uptime'],
+		          'bytes_in'  => $value['bytes-in'],
+		          'bytes_out' => $value['bytes-out']
+			  ));
+		  }
+		}
+  }
 
 }
