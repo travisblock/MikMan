@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap');
+@import url('font-face.css');
 
 *{
   margin: 0;
@@ -94,6 +94,7 @@ svg{
   position: fixed;
   top: 60px;
   background: #2e4ead;
+	font-weight: 50;
   width: 200px;
   height: calc(100% - 60px);
   transition: all 0.3s ease-in-out;
