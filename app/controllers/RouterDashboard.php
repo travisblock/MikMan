@@ -55,4 +55,13 @@ class RouterDashboard extends Controller
 		echo json_encode($data);
 	}
 
+	public function logout()
+	{
+		unset($_SESSION['MikMan']);
+		unset($_SESSION['ip']);
+		unset($_SESSION['user']);
+		unset($_SESSION['pass']);
+		Redirect::to('admin_dashboard');
+	}
+
 }
