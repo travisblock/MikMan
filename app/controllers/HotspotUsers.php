@@ -48,6 +48,7 @@ class HotspotUsers extends Controller
 
 	public function listById($id=null, $check=false)
 	{
+		error_reporting(0);
 		if (!is_null($id)) {
 			$user = $this->API->comm('/ip/hotspot/user/print', array(
 				"?.id" => $id
@@ -58,9 +59,8 @@ class HotspotUsers extends Controller
 						$data[".id"]			 = $user[0]['.id'];
 						$data["name"]			 = $user[0]['name'];
 						$data["profile"] 	 = $user[0]['profile'];
-			      $data["uptime"] 	 = $user[0]['uptime'];
-			      $data["bytes-in"]  = $user[0]['bytes-in'];
-			      $data["bytes-out"] = $user[0]['bytes-out'];
+			      $data["time"] 	 	 = $user[0]['limit-uptime'];
+			      $data["data"]  		 = $user[0]['limit-bytes-total'];
 			}
 
 			if(!$check){
