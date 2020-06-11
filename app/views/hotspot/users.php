@@ -86,25 +86,19 @@
 					<div class="form-group row">
 						<label class="col-lg-2 col-form-label">Profile</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control" name="profile" id="profile">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label class="col-md-2 col-form-label">Uptime</label>
-						<div class="col-md-10">
-							<input type="number" class="form-control" name="uptime" id="uptime">
+							<input type="text" class="form-control" name="profile" id="editProfil">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-2 col-form-label">Time limit</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control" name="time" id="time">
+							<input type="text" class="form-control" name="time" id="editTime">
 						</div>
 					</div>
 					<div class="form-group row">
 						<label class="col-lg-2 col-form-label">Data limit</label>
 						<div class="col-lg-10">
-							<input type="text" class="form-control" name="data" id="data">
+							<input type="text" class="form-control" name="data" id="editData">
 						</div>
 					</div>
 					<button type="button" class="btn btn-success" id="btneditsave">Save</button>
