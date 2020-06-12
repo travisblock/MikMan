@@ -40,4 +40,9 @@ class HotspotUserProfile extends Controller
 
 		return $profile;
 	}
+
+	public function add()
+	{
+		
+	}
 }
