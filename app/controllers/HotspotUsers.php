@@ -54,7 +54,6 @@ class HotspotUsers extends Controller
 				"?.id" => $id
 			));
 			$data = null;
-			// var_dump($user);
 			if (!empty($user)) {
 						$data[".id"]			 = $user[0]['.id'];
 						$data["name"]			 = $user[0]['name'];
@@ -108,12 +107,11 @@ class HotspotUsers extends Controller
 
 		  if ($user) {
 			  $edit = $this->API->comm('/ip/hotspot/set,', array(
-				  		'id'		=> $value['.id'],
-		          'name'      => $value['name'],
-		          'profile'   => $value['profile'],
-		          'uptime'    => $value['uptime'],
-		          'bytes_in'  => $value['bytes-in'],
-		          'bytes_out' => $value['bytes-out']
+				  		'.id'								 => $_POST['id'],
+		          'name'      				 => $_POST['name'],
+		          'profile'   				 => $_POST['profile'],
+		          'limit-uptime'    	 => $_POST['limit-uptime'],
+		          'limit-bytes-total'  => $_POST['bytes-total']
 			  ));
 		  }
 		}
