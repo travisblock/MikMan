@@ -77,6 +77,7 @@
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-12">
 				<form id="formadduser" method="POST">
+					<input type="hidden" name="id" id="idedit">
 					<div class="form-group row">
 						<label class="col-lg-2 col-form-label">Username</label>
 						<div class="col-lg-10">
